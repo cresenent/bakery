@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ganpati Bakers Bootstrap Project</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="title" content="Ganpati Bakers Bootstrap Project" />
+    <meta
+      name="description"
+      content="Bakery Web Template with Bootstrap 4, CSS animations, JavaScript, JQuery and localstorage usage in shopping cart feature."
+    />
+    <meta name="author" content="Leading edge software" />
+    <meta
+      name="keywords"
+      content="bakery, bakery template, Ganpati bakery, free template"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chicle&family=Kranky&family=Parisienne&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+<script src="https://kit.fontawesome.com/b80a054d9d.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="images/logo.png" type="image/png" sizes="16x16" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chicle&family=DynaPuff:wght@400..700&family=Kranky&family=Parisienne&display=swap" rel="stylesheet">
+    <style>@font-face {
+  font-family: "baloo-bold";
+  src: url("../font/Baloo_2/Baloo2-Bold.ttf");
+}
+@font-face {
+  font-family: "baloo-medium";
+  src: url("../font/Baloo_2/Baloo2-Medium.ttf");
+}
+@font-face {
+  font-family: "baloo-regular";
+  src: url("../font/Baloo_2/Baloo2-Regular.ttf");
+}
+@font-face {
+  font-family: "handwriting";
+  src: url("../font/Charm/Charm-Regular.ttf");
+}
+@font-face {
+  font-family: "logo", cursive;
+  src: url("../font/Coiny/Coiny-Regular.ttf");
+}
+   
+      :root {
+        --primary-color: #ff6b6b; /* Soft red */
+        --secondary-color: #A31F34; /* Yellow */
+        --accent-color: #ff9ff3; /* Light pink */
+        --dark-color: #4834d4; /* Dark purple for contrast */
+        --light-color: #A31F34; /* Light background */
+        --text-color: #2c3e50; /* Dark gray for text */
+        --text-light: #6c757d; /* Light gray for secondary text */
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+      }
+      .category-carousel {
+        display: flex;
+        border: 1px solid var(--light-color);
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+        background-color: #A31F34;
+        /* background: url("images/bg-category.svg"); */
+        backdrop-filter: blur(40px);
+        background-size: cover;
+        background-repeat: no-repeat;
+        /* padding: 20px; */
+        /* margin-left: 1rem; */
+        /* margin-right: 1rem; */
+        min-height: 30rem;
+        /* min-width: 80vw; */
+        border-radius: 10px;
+      }
+      .category-panel {
+        padding: 20px;
+        /* border-radius: 10px; */
+        color: white;
+        height: 100%;
+        width: 90%;
+        /* padding-right:4rem; */
+        border-right: 2px solid white;
+        /* mask-image: url("images/bg-category.svg"); */
+        /* border: 1px solid var(--light-color); */
+
+        backdrop-filter: blur(10px);
+        /* border-radius: 10px; */
+        min-height: 17rem;
+      }
+      .parent-category-panel {
+        /* background-image: url("images/bg-category.svg"); */
+        background-color: #ffffff00;
+        padding: 0;
+        /* margin-right: 2rem; */
+        border-radius: 10px;
+      }
+      .category-panel ul {
+        list-style-type: none;
+        padding: 0;
+  
+   
+      }
+      .owl-stage {
+        padding-top: 1rem;
+        /* min-height: 35rem; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .category-panel ul .li-unique   {
+        padding: 10px;
+        margin-bottom: 10px;
+        /* background-color: rgb(255, 255, 255); */
+        backdrop-filter: blur(40px);
+display: flex;
+
+/* justify-content:space-between; */
+align-items: flex-end;
+gap:1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #ffffff;
+        font-size:1.2rem;
+        transition: all 0.3s ease;
+        /* border: 1px solid #dee2e6; */
+        i{
+          font-size: 1.3rem;
+        }
+        span{
+          font-family: "DynaPuff", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  padding: 0;
+  line-height: 1;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+
+        }
+      }
+
+      .category-panel ul li:hover {
+        background-color: rgb(181, 66, 66);
+      }
+      .category-panel ul li.active {
+        background-color: #A31F34;
+        color: white;
+        border-color: #A31F34;
+        position: relative;
+      }
+      .category-panel ul li.active::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 4px;
+        height: 2px;
+        background: white;
+        border-radius: 2px;
+        transform: scaleX(1);
+        transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      }
+      .category-panel ul li:not(.active)::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 4px;
+        height: 3px;
+        background: transparent;
+        transform: scaleX(0);
+        transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      }
+
+      .carousel-panel {
+        /* padding: 20px; */
+      }
+      .owl-carausel .owl-stage {
+        height: 40rem;
+        padding: 2rem;
+        /* width: 80rem; */
+      }
+      .product-card {
+        background: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        /* border: 1px solid #A31F34; */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 20px;
+        height: auto;
+        min-height: 16rem;
+        min-width: 16rem;
+        border: 1px solid #f1f1f1;
+      }
+      .show {
+        background: #ffffff00;
+        border-radius: 10px;
+        overflow:visible;
+        border: none;
+        box-shadow: none;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-bottom: 20px;
+        height: auto;
+          min-width: 16rem;
+        .product-image {
+        width: 90%;
+        height: 13rem;
+        display: flex;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+
+        /* border:1px solid #A31F34 ; */
+        overflow:visible;
+        background-color: rgb(255, 234, 165);
+        img{
+          width: 18rem;
+          height:18rem;
+          object-fit: cover;
+          overflow: visible;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+         .product-info {
+        padding: 15px;
+        text-align: center;
+        
+        background-color: #f9f9f900;
+        h5{
+          font-size: 1.5rem;
+          font-family: 'handwriting';
+          font-weight:bold;
+        }
+        .product-price {
+          display: none;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+      }
+
+        /* border: 1px solid #f1f1f1; */
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        border-color: transparent;
+      }
+      .show:hover {
+        transform: translateY(-5px);
+        box-shadow:none;
+        /* border-color: #A31F34; */
+        .product-image {
+        width: 90%;
+        height: 13rem;
+        display: flex;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        /* border:1px solid #A31F34 ; */
+        overflow:visible;
+        background-color: rgb(255, 234, 165);
+        img{
+          width: 25rem;
+          height: 25rem;
+          transform: scale(1.2);
+          /* object-fit: cover; */
+          overflow: visible;
+        }
+      }}
+
+      .product-image {
+        width: 100%;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background-color: #f9f9f9;
+      }
+
+      .product-image img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.07);
+      }
+
+      .product-info {
+        padding: 15px;
+        text-align: center;
+        background-color: #f9f9f9;
+      }
+
+      .product-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--text-color);
+        margin-bottom: 10px;
+      }
+
+      .product-description {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+
+      .product-price {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      .section-title {
+        color: var(--primary-color);
+        position: relative;
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--primary-color);
+       border-radius: 2px;
+      }
+
+      .section-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      /* Add some responsive adjustments */
+      @media (max-width: 768px) {
+        .product-image {
+          height: 150px;
+        }
+
+        .product-card {
+          margin-bottom: 15px;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 992px) {
+        .show{
+          min-width: 16
+        }
+      }
+
+      /* Additional styling for the carousel navigation */
+      .owl-nav button.owl-prev,
+      .owl-nav button.owl-next {
+        background: rgba(255, 107, 107, 0.144)!important;
+
+        backdrop-filter: blur(10px);
+        color: white !important;
+        width: 3.5rem !important;
+        height: 3.5rem !important;
+        border-radius: 50% !important;
+        transition: all 0.3s ease !important;
+        position: absolute !important;
+        top: 90% !important;
+        transform: translateY(-20%) !important;
+        span {
+          font-size: 2rem !important;
+          color: white !important;
+        }
+      }
+
+      .owl-nav button.owl-prev {
+        left: -0px !important;
+      }
+
+      .owl-nav button.owl-next {
+        right: -0px !important;
+      }
+
+      .owl-nav button.owl-prev:hover,
+      .owl-nav button.owl-next:hover {
+        backdrop-filter: blur(15px);
+
+            background: rgba(255, 107, 107, 0.225)!important;
+
+
+      }
+
+      /* Add a nice transition for the category panel items */
+      .category-panel ul li {
+        transition: all 0.3s ease;
+      }
+
+      /* Style for the product badges if they are used */
+      .product-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        z-index: 10;
+      }
+
+      .product-badge.special {
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color) 0%,
+          var(--accent-color) 100%
+        );
+      }
+
+      .product-badge.bestseller {
+        background: var(--dark-color);
+      }
+
+      .product-badge.healthy {
+        background: #7bed9f;
+      }
+
+      /* Style for the add to cart button if it's added later */
+      .btn-add-to-cart {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+      }
+
+      .btn-add-to-cart:hover {
+        background-color: #e05656;
+      }
+
+      /* Make sure the carousel items are properly aligned */
+      .owl-carousel .owl-item {
+        display: flex;
+        justify-content: center;
+        /* width: 20rem; */
+      }
+
+      /* Add some spacing between product cards in the carousel */
+      .owl-carousel .owl-item {
+        padding: 0 10px;
+      }
+
+      /* Ensure the carousel container has proper width */
+      .owl-carousel {
+        width: 100%;
+        display: flex;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navigation navbar-expand-lg fixed-top menu">
+        <div class="container px-md-0">
+          <a class="navbar-brand" href="index.html"
+            ><span>Ganpati</span> Bakery</a
+          >
+          <button
+            class="animate-toggler d-lg-none d-md-inline-block"
+            type="button"
+            data-target="#myNav"
+            data-toggle="collapse"
+          >
+            <i></i><i></i><i></i>
+          </button>
+     <div class="collapse navbar-collapse" id="myNav" style="padding-right: 2rem;">
+            <ul class="navbar-nav m-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="product.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="##"> Baked Goodies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Staples</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="##"> Gifting</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> Gallery</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              <input
+                type="text"
+                name="search"
+                id="searchbox"
+                placeholder="Enter Keyword..."
+                autofocus
+                class="shadow p-2"
+                style="display: none"
+              />
+              <button
+                class="btn btn-search"
+                id="search-Button"
+                aria-controls="sidebar"
+                aria-expanded="false"
+              >
+                <i class="fas fa-search icon-light"></i>
+              </button>
+              <aside id="sidebar" class="sidebar" aria-hidden="true">
+                <p>here are the things here</p>
+              </aside>
+            </span>
+          </div>
+              <style>
+              .sidebar {
+                position: fixed;
+                top: 0;
+                right: -420px;
+                width: 400px;
+                height: 100vh;
+                background: linear-gradient(135deg, #A31F34 80%, #f62564 100%);
+                color: #fff;
+                box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+                z-index: 1050;
+                transition: right 0.4s cubic-bezier(0.4,0,0.2,1);
+                border-top-left-radius: 24px;
+                border-bottom-left-radius: 24px;
+                overflow-y: auto;
+                font-family: 'DynaPuff', 'Arial', cursive, sans-serif;
+              }
+              .sidebar.open {
+                right: 0;
+              }
+              .sidebar .close-btn {
+                background: none;
+                border: none;
+                color: #fff;
+                font-size: 2.2rem;
+                position: absolute;
+                top: 18px;
+                right: 22px;
+                cursor: pointer;
+                transition: color 0.2s;
+                z-index: 2;
+              }
+              .sidebar .close-btn:hover {
+                color: #ff9ff3;
+              }
+              .sidebar-content {
+                margin-top: 2.5rem;
+              }
+              .sidebar h4, .sidebar h5 {
+                font-family: 'Chicle', cursive;
+                color: #fff;
+                letter-spacing: 1px;
+                text-shadow: 0 2px 8px rgba(163,31,52,0.12);
+              }
+              .sidebar hr {
+                border-top: 1.5px solid #fff2;
+                margin: 1.5rem 0;
+              }
+              .sidebar .input-group .form-control {
+                border-radius: 20px 0 0 20px;
+                border: none;
+                background: #fff;
+                color: #A31F34;
+                font-size: 1rem;
+                box-shadow: 0 2px 8px #0001;
+              }
+              .sidebar .input-group .form-control:focus {
+                box-shadow: 0 2px 12px #ff9ff3aa;
+                border: none;
+              }
+              .sidebar .input-group-append .btn {
+                border-radius: 0 20px 20px 0;
+                background: #ff9ff3;
+                color: #A31F34;
+                border: none;
+                font-weight: bold;
+                transition: background 0.2s;
+              }
+              .sidebar .input-group-append .btn:hover {
+                background: #F1A80E;
+                color: #A31F34;
+              }
+              .sidebar ul.list-unstyled li {
+                margin-bottom: 0.7rem;
+              }
+              .sidebar ul.list-unstyled li a {
+                color: #fff;
+                font-size: 1.08rem;
+                font-family: 'DynaPuff', cursive, sans-serif;
+                text-decoration: none;
+                transition: color 0.2s;
+                padding: 0.2rem 0.5rem;
+                border-radius: 8px;
+                display: inline-block;
+              }
+              .sidebar ul.list-unstyled li a:hover,
+              .sidebar ul.list-unstyled li a:focus {
+                color: #ff9ff3;
+                background: #fff1;
+                text-decoration: none;
+              }
+              .sidebar-category-link i {
+                color: #ff9ff3;
+                margin-right: 0.5rem;
+              }
+              .sidebar-social a {
+                color: #fff;
+                font-size: 1.3rem;
+                margin-right: 0.7rem;
+                transition: color 0.2s, transform 0.2s;
+                display: inline-block;
+              }
+              .sidebar-social a:hover {
+                color: #ff9ff3;
+                transform: scale(1.15) rotate(-8deg);
+                text-decoration: none;
+              }
+              @media (max-width: 600px) {
+                .sidebar {
+                  width: 100vw;
+                  right: -100vw;
+                  border-radius: 0;
+                }
+                .sidebar.open {
+                  right: 0;
+                }
+              }
+            </style>
+            <div class="sidebar">
+              <button id="close-sidebar" class="close-btn" aria-label="Close Sidebar">&times;</button>
+              <div class="sidebar-content p-4">
+                <h4 class="mb-4"><i class="fas fa-search mr-2"></i>Search</h4>
+                <form id="sidebar-search-form" class="mb-4">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search products..." aria-label="Search products" />
+                    <div class="input-group-append">
+                      <button class="btn" type="submit">
+                        <i class="fas fa-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                </form>
+                <hr>
+                <h5 class="mb-3"><i class="fas fa-link mr-2"></i>Quick Links</h5>
+                <ul class="list-unstyled mb-4">
+                  <li><a href="about.html"><i class="fas fa-info-circle mr-2"></i>About Us</a></li>
+                  <li><a href="product.html"><i class="fas fa-bread-slice mr-2"></i>Our Products</a></li>
+                  <li><a href="contact.html"><i class="fas fa-envelope mr-2"></i>Contact Us</a></li>
+                  <li><a href="#faq"><i class="fas fa-question-circle mr-2"></i>FAQs</a></li>
+                </ul>
+                <hr>
+                <h5 class="mb-3"><i class="fas fa-list mr-2"></i>Categories</h5>
+                <ul class="list-unstyled">
+                  <li><a href="#" class="sidebar-category-link" data-category="breads"><i class="fa-solid fa-bread-slice mr-2"></i>Breads</a></li>
+                  <li><a href="#" class="sidebar-category-link" data-category="cakes"><i class="fa-solid fa-cake-candles mr-2"></i>Cakes</a></li>
+                  <li><a href="#" class="sidebar-category-link" data-category="drinks"><i class="fa-solid fa-mug-hot mr-2"></i>Drinks</a></li>
+                  <li><a href="#" class="sidebar-category-link" data-category="snacks"><i class="fa-solid fa-cookie-bite mr-2"></i>Snacks</a></li>
+                </ul>
+                <hr>
+                <div class="sidebar-social mt-4">
+                  <span class="d-block mb-2">Follow us:</span>
+                  <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                  <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                  <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+              </div>
+            </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="banner">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 p-md-0">
+              <h1 data-aos="fade-right" data-aos-duration="1000">
+                <span class="text-outline-white">Daily</span>
+                <span class="text-fresh">Fresh</span> Baked
+                <br class="d-md-none d-inline" />
+                Bread <span class="text-outline-white">&</span> Cakes
+              </h1>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit Lorem
+                ipsum dolor sit amet consectetur, adipisicing elit. Accusamus
+                nisi itaque sunt eligendi ab natus rganapatiepudiandae incidunt at
+                debitis ex.
+              </p>
+              <a href="product.html" class="btn btn-brown rounded-pills"
+                >See Our Products <i class="fas fa-caret-right fa-sm ml-2"></i
+              ></a>
+              <div class="social-media">
+                Find Us On :
+                <span class="px-2"></span> ____
+                <a
+                  href="https://facebook.com"
+                  class="px-3 text-center"
+                  target="_blank"
+                  title="Facebook"
+                >
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                |
+                <a
+                  href="https://instagram.com"
+                  class="px-3 text-center"
+                  target="_blank"
+                  title="Instagram"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+                |
+                <a
+                  href="https://twitter.com"
+                  class="px-3 text-center"
+                  target="_blank"
+                  title="Twitter"
+                >
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-6 p-md-0 text-center d-md-block d-none d-md-flex align-items-center">
+              <div
+                id="carouselExampleFade"
+                class="carousel carousel-fade"
+                data-ride="carousel"
+                data-aos="zoom-in"
+                data-aos-duration="1500"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img
+                      src="images/banner-1.png"
+                      class="d-block mb-5"
+                      style="clip-path: url('images/products/bg.svg')"
+                      alt="banner image"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="images/banner-3.png"
+                      class="d-block mb-5"
+                      alt="banner image"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="images/banner-4.png"
+                      class="d-block mb-5"
+                      alt="banner image"
+                    />
+                  </div>
+                  <div class="carousel-item">
+                    <img
+                      src="images/banner-5.png"
+                      class="d-block mb-5"
+                      alt="banner image"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="about"
+        style="
+          background: url('images/bg-about.svg');
+          background-repeat: no-repeat;
+          background-size: cover;
+        "
+      >
+        <div class="container py-5 px-5">
+          <div class="row my-lg-3">
+            <div class="col-lg-5">
+              <div class="img-wrap">
+                <img
+                  src="images/about-img.jpg"
+                  class="img-fluid shadow rounded"
+                  alt="Product Image"
+                />
+                <div class="inner-block">
+                  <div class="slider-top-right"></div>
+                  <div class="block-content">
+                    <h2 class="font-italic">Ganpati bakery</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7 px-md-5">
+              <h3 class="about-heading">Welcome to Our Ganpati bakery!</h3>
+              <p data-aos="fade-up" data-aos-duration="1000">
+                We offer daily fresh bread, cakes and coffee. You can enjoy at
+                our bakery or from our online shop.
+              </p>
+              <ul>
+                <li data-aos="fade-up" data-aos-duration="1000">
+                  <span><i class="fas fa-check"></i> </span>Bread, Cakes, and
+                  Donuts
+                </li>
+                <li data-aos="fade-up" data-aos-duration="1000">
+                  <span><i class="fas fa-check"></i> </span>Birthday Cakes,
+                  Wedding Cakes
+                </li>
+                <li data-aos="fade-up" data-aos-duration="1000">
+                  <span><i class="fas fa-check"></i> </span>Drinks, Cola, Tea
+                  and Coffee
+                </li>
+              </ul>
+              <a
+                href="about.html"
+                class="btn btn-brown rounded-pill mt-md-3"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+                >Read More <i class="fas fa-caret-right fa-sm ml-2"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-section">
+        <div class="container product-prooo">
+          <div
+            class="section-header"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <div class="section-icon">
+              <i class="fas fa-fire"></i>
+            </div>
+            <h2 class="section-title">Top Selling</h2>
+            <p class="section-subtitle d-none">
+              Our most popular items that customers can't get enough of
+            </p>
+          </div>
+          <div class="row">
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              <div class="product-card show">
+                <div class="product-image">
+                  <img
+                    src="images/products/n2.png"
+                    alt="Chocolate Cake"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="product-info">
+                  <h5 class="product-title">Blueberry Muffin</h5>
+                  <!-- <p class="product-description">
+                    Rich, moist chocolate cake with premium fudge frosting
+                  </p> -->
+                  <p class="product-price">Rs.8,500</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-duration="1200"
+            >
+              <div class="product-card show">
+                <div class="product-image">
+                  <img
+                    src="images/products/n1.png"
+                    alt="Sourdough Bread"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="product-info">
+                  <h5 class="product-title">Danish Pastry</h5>  
+                  <!-- <p class="product-description">
+                    Traditional sourdough with perfect crust and soft interior
+                  </p> -->
+                  <p class="product-price">Rs.1,200</p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-duration="1400"
+            >
+              <div class="product-card show">
+                <div class="product-image">
+                  <img
+                    src="images/products/n3.png"
+                    alt="Croissant"
+                    loading="lazy"
+                    
+                  />
+                </div>
+                <div class="product-info">
+                  <h5 class="product-title">Coconut Macaroon Cookie</h5>
+                  <!-- <p class="product-description">
+                    Flaky, buttery croissant made with French technique
+                  </p> -->
+                  <p class="product-price">Rs.1,500</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-section-items">
+        <div class="container">
+          <div
+            class="section-header"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+          >
+            <div class="section-icon">
+              <i class="fas fa-bread-slice"></i>
+            </div>
+            <h2 class="section-title">Items</h2>
+          </div>
+          <div class="row category-carousel">
+            <div class="col-md-3 parent-category-panel">
+              <div class="category-panel">
+                <h3 style="color: #ffffff; text-align: center; margin-bottom: 2rem; text-decoration:underline;">Categories</h3>
+                <ul>
+                  <li class="active li-unique" data-category="breads"><i class="fa-solid fa-bread-slice"></i><span>Breads</span> </li> 
+                  <li class="li-unique" data-category="cakes"><i class="fa-solid fa-cake-candles"></i><span>Cakes</span> </li>
+                  <li class="li-unique" data-category="drinks"><i class="fa-solid fa-mug-hot"></i><span>Drinks</span> </li>
+                  <li class="li-unique" data-category="snacks"><i class="fa-solid fa-cookie-bite"></i><span>Snacks</span> </li>
+
+                </ul>
+              </div>
+              <div class="m"></div>
+            </div>
+            <div class="col-md-9">
+                <div class="carousel-panel">
+                <div class="owl-carousel owl-theme">
+                  <!-- Bread Items -->
+                  <div class="item" data-category="breads">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/whole-wheat-bread-1.png"
+                      alt="Whole Wheat Bread"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Whole Wheat Bread</h5>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="item" data-category="breads">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/baguette.png"
+                      alt="French Baguette"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">French Baguette</h5>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="item" data-category="breads">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/4.jpg"
+                      alt="Ciabatta"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Ciabatta</h5>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="item" data-category="breads">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/sourdough.png"
+                      alt="Sourdough Bread"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Artisan Sourdough</h5>
+                    </div>
+                  </div>
+                  </div>
+
+                  <!-- Cake Items -->
+                  <div class="item" data-category="cakes">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/3.jpg"
+                      alt="Chocolate Cake"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Chocolate Cake</h5>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="item" data-category="cakes">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/vanilla cake.png"
+                      alt="Vanilla Cake"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Vanilla Cake</h5>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="item" data-category="cakes">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/strawberry.png"
+                      alt="Strawberry Cake"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Strawberry Cake</h5>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="item" data-category="cakes">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/redvelvet.png"
+                      alt="Red Velvet Cake"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Red Velvet Cake</h5>
+                    </div>
+                  </div>
+                  </div>
+
+                  <!-- Drink Items -->
+                  <div class="item" data-category="drinks">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/icedcoffee.png"
+                      alt="Iced Coffee"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Iced Coffee</h5>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="item" data-category="drinks">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/hotchocolate.png"
+                      alt="Hot Chocolate"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Hot Chocolate</h5>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="item" data-category="drinks">
+                  <div class="product-card">
+                    <div class="product-image">
+                    <img
+                      src="images/products/freshorangejuice.png"
+                      alt="Fresh Juice"
+                      loading="lazy"
+                    />
+                    </div>
+                    <div class="product-info">
+                    <h5 class="product-title">Fresh Orange Juice</h5>
+                    </div>
+                  </div>
+                  </div>
+                <div class="item" data-category="drinks">
+                  <div class="product-card">
+                  <div class="product-image">
+                    <img
+                    src="images/products/lemonade.png"
+                    alt="Lemonade"
+                    loading="lazy"
+                    />
+                  </div>
+                  <div class="product-info">
+                    <h5 class="product-title">Fresh Lemonade</h5>
+                  </div>
+                  </div>
+                </div>
+                <!-- snacks------------------- -->
+                <div class="item" data-category="snacks">
+                  <div class="product-card">
+                  <div class="product-image">
+                    <img
+                    src="images/products/chocolate-chip cookie.png"
+                    alt="Chocolate Chip Cookies"
+                    loading="lazy"
+                    />
+                    <div class="product-badge">Sweet</div>
+                  </div>
+                  <div class="product-info">
+                    <h5 class="product-title">Chocolate Chip Cookies</h5>
+                  </div>
+                  </div>
+                </div>
+                <div class="item" data-category="snacks">
+                  <div class="product-card">
+                  <div class="product-image">
+                    <img
+                    src="images/products/blueberry-muffin.png"
+                    alt="Blueberry Muffin"
+                    loading="lazy"
+                    />
+                    <div class="product-badge">Fresh</div>
+                  </div>
+                  <div class="product-info">
+                    <h5 class="product-title">Blueberry Muffin</h5>
+                  </div>
+                  </div>
+                </div>
+                <div class="item" data-category="snacks">
+                  <div class="product-card">
+                  <div class="product-image">
+                    <img
+                    src="images/products/danish-pastry.png"
+                    alt="Danish Pastry"
+                    loading="lazy"
+                    />
+                    <div class="product-badge">Flaky</div>
+                  </div>
+                  <div class="product-info">
+                    <h5 class="product-title">Danish Pastry</h5>
+                  </div>
+                  </div>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="py-5 text-center">
+        <div class="container">
+          <h3 class="mb-4" data-aos="fade-up" data-aos-duration="1000">
+            Ready to taste our delicious products?
+          </h3>
+          <a
+            href="product.html"
+            class="btn btn-brown rounded-pill px-5 py-3"
+            data-aos="fade-up"
+            data-aos-duration="1200"
+          >
+            <i class="fas fa-eye mr-2"></i>View All Products
+          </a>
+        </div>
+      </section>
+
+      <section id="bakers">
+        <div class="container py-5">
+          <h2 class="section-title">Our Bakers</h2>
+          <div class="row">
+            <div class="col-6 col-md-4">
+              <div class="img-wrap mx-auto p-3">
+                <img
+                  src="images/chef-1.png"
+                  class="img-fluid"
+                  alt="Baker Image"
+                />
+              </div>
+              <div class="py-3 text-center">
+                <h5
+                  class="font-weight-bold"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
+                  James Smith
+                </h5>
+                <p data-aos="flip-left" data-aos-duration="1000">Chief Baker</p>
+                <div class="my-3 social-media">
+                  <a
+                    href="https://facebook.com"
+                    class="px-2 text-center"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Facebook"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  |
+                  <a
+                    href="https://instagram.com"
+                    class="px-2 text-center"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  |
+                  <a
+                    href="https://twitter.com"
+                    class="px-2 text-center"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Twitter"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-md-4">
+              <div class="img-wrap mx-auto p-3">
+                <img
+                  src="images/chef-2.png"
+                  class="img-fluid"
+                  alt="Baker Image"
+                />
+              </div>
+              <div class="py-3 text-center">
+                <h5
+                  class="font-weight-bold"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
+                  Elizabeth
+                </h5>
+                <p data-aos="flip-left" data-aos-duration="1000">Chief Baker</p>
+                <div class="my-3 social-media">
+                  <a
+                    href="https://facebook.com"
+                    class="px-2 text-center"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Facebook"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  |
+                  <a
+                    href="https://instagram.com"
+                    class="px-2 text-center"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  |
+                  <a
+                    href="https://twitter.com"
+                    class="px-2 text-center"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Twitter"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="offset-3 col-6 offset-md-0 col-md-4">
+              <div class="img-wrap mx-auto p-3">
+                <img
+                  src="images/chef-3.png"
+                  class="img-fluid"
+                  alt="Baker Image"
+                />
+              </div>
+              <div class="py-3 text-center">
+                <h5
+                  class="font-weight-bold"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
+                  Catherine
+                </h5>
+                <p data-aos="flip-left" data-aos-duration="1000">
+                  Assistant Baker
+                </p>
+                <div class="my-3 social-media">
+                  <a
+                    href="https://facebook.com"
+                    class="px-2 text-center"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Facebook"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  |
+                  <a
+                    href="https://instagram.com"
+                    class="px-2 text-center"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  |
+                  <a
+                    href="https://twitter.com"
+                    class="px-2 text-center"
+                    target="_blank"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Twitter"
+                  >
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="review">
+        <div class="container py-5">
+          <h2 class="section-title">Customers' Reviews</h2>
+          <div
+            id="carouselExampleControls"
+            class="carousel slide"
+            data-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <h4 class="font-italic text-center pt-5 pb-4">
+                  <sup><i class="fas fa-quote-left"></i></sup> Thank you all the
+                  staff of B bakery <br />
+                  for making amazing cake for my husband's 50th birthday
+                  <sup><i class="fas fa-quote-right"></i></sup>
+                </h4>
+                <p class="text-center review">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </p>
+                <div class="people text-center pt-3 pb-5">
+                  <div class="img image1 rounded-circle"></div>
+                  <h5 class="font-weight-bold my-3">Anna</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <h4 class="font-italic text-center pt-5 pb-4">
+                  <sup><i class="fas fa-quote-left"></i></sup> Thank you so
+                  much! <br />That cake was honestly breathtaking…. I'm so
+                  happy. <sup><i class="fas fa-quote-right"></i></sup>
+                </h4>
+                <p class="text-center review">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </p>
+                <div class="people text-center pt-3 pb-5">
+                  <div class="img image2 rounded-circle"></div>
+                  <h5 class="font-weight-bold my-3">John</h5>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <h4 class="font-italic text-center pt-5 pb-4">
+                  <sup><i class="fas fa-quote-left"></i></sup> We loved the cake
+                  you made <br />for our daughters birthday. All our guests
+                  enjoyed it as well.
+                  <sup><i class="fas fa-quote-right"></i></sup>
+                </h4>
+                <p class="text-center review">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </p>
+                <div class="people text-center pt-3 pb-5">
+                  <div class="img image3 rounded-circle"></div>
+                  <h5 class="font-weight-bold my-3">David</h5>
+                </div>
+              </div>
+            </div>
+            <a
+              class="carousel-control-prev"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a
+              class="carousel-control-next"
+              href="#carouselExampleControls"
+              role="button"
+              data-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="container py-5">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="accordion" id="accordionExample">
+            <div
+              class="card border-0 shadow mb-4"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button
+                    class="btn-accordion btn btn-block text-left"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseOne"
+                    data-id="1"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    <strong>Q: </strong>Can I place an order online if I know
+                    what I want?
+                    <span><i class="fas fa-caret-down arrow1 down"></i></span>
+                  </button>
+                </h2>
+              </div>
+              <div
+                id="collapseOne"
+                class="collapse show"
+                aria-labelledby="headingOne"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body px-4">
+                  <strong>A: </strong>At this time, this is not a service we
+                  offer. We want to engage with you personally to ensure we are
+                  creating a dessert that meets your needs from design to the
+                  actual cake itself. Each cake that is requested is an unique
+                  request and requires our touch point with each of our
+                  customers.
+                </div>
+              </div>
+            </div>
+            <div
+              class="card border-0 shadow mb-4"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button
+                    class="btn-accordion btn btn-block text-left collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseTwo"
+                    data-id="2"
+                    aria-expanded="false"
+                    aria-controls="collapseTwo"
+                  >
+                    <strong>Q: </strong>Why are you prices higher than the
+                    neighbor stores?
+                    <span><i class="fas fa-caret-down arrow2"></i></span>
+                  </button>
+                </h2>
+              </div>
+              <div
+                id="collapseTwo"
+                class="collapse"
+                aria-labelledby="headingTwo"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body px-4">
+                  <strong>A: </strong>Neighbor stores offer a great service for
+                  those looking for that type of dessert. We are a cake studio
+                  that offers unique cakes and flavors that you won't find in
+                  your typical grocery store. Our prices reflect homemade,
+                  custom created recipes and cakes made to order.
+                </div>
+              </div>
+            </div>
+            <div
+              class="card border-0 shadow mb-4"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button
+                    class="btn-accordion btn btn-block text-left collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseThree"
+                    data-id="3"
+                    aria-expanded="false"
+                    aria-controls="collapseThree"
+                  >
+                    <strong>Q: </strong>What other services do you offer?
+                    <span><i class="fas fa-caret-down arrow3"></i></span>
+                  </button>
+                </h2>
+              </div>
+              <div
+                id="collapseThree"
+                class="collapse"
+                aria-labelledby="headingThree"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body px-4">
+                  <strong>A: </strong>We plan to offer cake decorating classes
+                  later in 2025. Some of the classes include cakepop making,
+                  American Buttercream and stacking cakes successfully for the
+                  home baker. We also plan to offer a Cupcake of the month
+                  reward program.
+                </div>
+              </div>
+            </div>
+            <div
+              class="card border-0 shadow mb-4"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                  <button
+                    class="btn-accordion btn btn-block text-left collapsed"
+                    type="button"
+                    data-toggle="collapse"
+                    data-target="#collapseFour"
+                    data-id="4"
+                    aria-expanded="false"
+                    aria-controls="collapseFour"
+                  >
+                    <strong>Q: </strong>Do you deliver, if so how far?
+                    <span><i class="fas fa-caret-down arrow4"></i></span>
+                  </button>
+                </h2>
+              </div>
+              <div
+                id="collapseFour"
+                class="collapse"
+                aria-labelledby="headingFour"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body px-4">
+                  <strong>a: </strong>absolutely!! i understand it can be very
+                  stressful delivering a cake, so leave it to me to make sure it
+                  gets there in one piece! as for distance, right now there is
+                  no limit, the furthest i have driven a large cake was 3.5
+                  hours away. the usual fee is Rs.2,000 per mile to the
+                  destination.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="pt-5 text-center"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <!-- Heading Section -->
+      <h3
+        class="font-italic text-light"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
+        We baked every day for you...
+      </h3>
+      <hr />
+
+      <!-- Main Footer Content -->
+      <div class="container-fluid">
+        <div class="row m-0">
+          <!-- Address and Opening Hours -->
+          <!-- Company, Bakery, Support Section -->
+          <div class="col-md-4 mb-4 row m-0">
+            <div class="col-lg-4">
+            <h4 class="text-light font-weight-bold">Company</h4>
+            <ul class="footer-ul">
+              <li><a href="#" class="text-light">About us</a></li>
+              <li><a href="#" class="text-light">Blogs</a></li>
+              <li><a href="#" class="text-light">Careers</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-light font-weight-bold">Bakery</h4>
+            <ul class="footer-ul">
+              <li><a href="#" class="text-light">Locations</a></li>
+              <li><a href="#" class="text-light">Our products</a></li>
+              <li><a href="#" class="text-light">Recipes</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-light font-weight-bold">Support</h4>
+            <ul class="footer-ul">
+              <li><a href="#" class="text-light">FAQs</a></li>
+              <li><a href="#" class="text-light">Contact us</a></li>
+            </ul>
+          </div>
+            <!-- Social Media Icons -->
+            
+          </div>
+        <div class="col-md-4 mb-4">
+          <h4 class="text-light font-weight-bold">Address</h4>
+          <p class="text-light">
+            Ganapati Road, Birtamod <br />
+            Jhapa, Nepal
+          </p>
+          <p class="text-light">023-534577</p>
+          <h4 class="text-light font-weight-bold">Opening Hours</h4>
+          <div class="row opening-hour">
+            <div class="col-5 text-light text-right">Mon - Fri</div>
+            <div class="col-7 text-light text-center">08:00 to 09:00</div>
+            <div class="col-5 text-light text-right">Sat - Sun</div>
+            <div class="col-7 text-light text-center">08:00 to 06:00</div>
+            <div class="col-5 text-warning text-right mt-3">Happy Hour</div>
+            <div class="col-7 text-warning text-center mt-3">11:00 to 01:00</div>
+          </div>
+        </div>
+
+        <!-- Facebook iframe Section -->
+          <div class="col-md-4 text-center">
+            <div class="bread-shaped-container">
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fganapatibakers&tabs=timeline&width=450&height=450&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                width="400"
+                height="500"
+                style="border: none; overflow: hidden"
+                scrolling="no"
+                frameborder="0"
+                allowTransparency="true"
+                
+                style="border-radius: 50%"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+      <!-- Footer copyright section -->
+      <div class="div-footer text-right py-4 pr-lg-2">
+<div class="social-media mt-3 col-12 text-left p-0">
+              <span class="text-light mr-2">Follow us:</span>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+        Copyright © 2025 Ganpati Bakers by
+        <a
+          href="https://leadingedgesoft.com/"
+          target="_blank"
+          class="text-white"
+          >Leading Edge Software</a
+        >.
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script
+      type="text/javascript"
+      src="vendor/owlcarousel/owl.carousel.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="vendor/owlcarousel/jquery.mousewheel.min.js"
+    ></script>
+    <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="vendor/aos/aos.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/localstorage.js"></script>
+    <script>
+      $(document).ready(function () {
+        AOS.init({
+          duration: 200,
+          once: true,
+        });
+
+        $('a[href^="#"]').on("click", function (event) {
+          var target = $(this.getAttribute("href"));
+          if (target.length) {
+            event.preventDefault();
+            $("html, body")
+              .stop()
+              .animate(
+                {
+                  scrollTop: target.offset().top - 10,
+                },
+                200
+              );
+          }
+        });
+
+        // Smooth scroll to next .product-section on scroll down, previous on scroll up
+        let lastScrollTop = 0;
+        let isScrolling = false;
+
+        $(window).on("wheel", function (e) {
+          if (isScrolling) return;
+          const delta = e.originalEvent.deltaY;
+          const sections = $(".product-section");
+          const scrollPos = $(window).scrollTop();
+          let target;
+
+          // Find current section in view
+          let currentSection = null;
+          sections.each(function () {
+            const offset = $(this).offset().top;
+            if (scrollPos + 10 >= offset) {
+              currentSection = $(this);
+            }
+          });
+
+          if (!currentSection) return;
+
+          if (delta > 0) {
+            // Scroll down
+            target = currentSection.next(".product-section");
+          } else {
+            // Scroll up
+            target = currentSection.prev(".product-section");
+          }
+
+          if (target && target.length) {
+            isScrolling = true;
+            $("html, body")
+              .stop()
+              .animate({ scrollTop: target.offset().top }, 600, function () {
+                isScrolling = false;
+              });
+            e.preventDefault();
+          }
+        });
+
+        // Enable swipe for Bootstrap carousel (always move only one item per swipe)
+        // $("#morningCarousel").swipe({
+        //   swipe: function (event, direction) {
+        //     if (direction === "left") {
+        //       $(this).carousel("next");
+        //     }
+        //     if (direction === "right") {
+        //       $(this).carousel("prev");
+        //     }
+        //   },
+        //   fingers: 1, // Only one finger
+        //   threshold: 1000, // require a longer swipe for smoother feel
+        //   allowPageScroll: "vertical",
+        //   excludedElements: "label, button, input, select, textarea, .noSwipe",
+        // });
+
+        // Reduce carousel scroll speed
+        // $.fn.carousel.Constructor.TRANSITION_DURATION = 300; // 1.2 seconds
+
+        // Initialize Owl Carousel for the items section
+        var owl = $(".owl-carousel");
+        owl.owlCarousel({
+          loop: true,
+          margin: 10,
+          nav: true,
+          responsive: {
+            0: {
+              items: 1,
+            },
+            600: {
+              items: 1,
+            },
+            1000: {
+              items: 0,
+            },
+          },
+        });
+
+        // Store all items initially
+        var allItems = $(".owl-carousel .item").clone();
+
+        // Function to initialize or update the carousel with items of a specific category
+        function updateCarousel(category) {
+          // Filter items by category
+          var filteredItems = allItems.filter(function () {
+            return $(this).data("category") === category;
+          });
+
+          // Clear the carousel
+          $(".owl-carousel").html("");
+
+          // Add filtered items to the carousel
+          filteredItems.each(function () {
+            $(".owl-carousel").append($(this).clone());
+          });
+
+          // Initialize or reinitialize the carousel
+          owl.trigger("destroy.owl.carousel");
+          owl = $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: true,
+            responsive: {
+              0: {
+                items: 1,
+              },
+              600: {
+                items: 2,
+              },
+              1000: {
+                items: 3,
+              },
+               2000: {
+                items: 4,
+              },
+              2800: {
+                items: 5,
+              },
+              3200: {
+                items: 6,
+              },
+            },
+          });
+        }
+
+        // Click event for category items
+        $(".category-panel ul li").click(function () {
+          $(".category-panel ul li").removeClass("active");
+          $(this).addClass("active");
+          var category = $(this).data("category");
+          updateCarousel(category);
+        });
+
+        // Initialize with the first category (breads)
+        updateCarousel("breads");
+
+        // Add to cart button functionality
+        $(".btn-add-to-cart").click(function () {
+          alert("Item added to cart!");
+          // Here you would typically add the item to a shopping cart in localStorage or send to a server
+        });
+      });
+    </script>
+    <script>
+      const searchButton = document.getElementById("search-btn");
+const sidebar = document.querySelector(".sidebar");
+const closeSidebarBtn = document.getElementById("close-sidebar");
+searchButton.addEventListener("click", () => {
+  sidebar.classList.add("open");
+});
+
+closeSidebarBtn.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+});
+
+document.addEventListener("click", (e) => {
+  if (!sidebar.contains(e.target) && !searchButton.contains(e.target)) {
+    sidebar.classList.remove("open");
+  }
+});
+
+
+    </script>
+  </body>
+</html>

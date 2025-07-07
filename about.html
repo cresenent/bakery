@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ganpati Bakers Bootstrap Project</title>
+
+    <!-- meta tags -->
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="title" content="Ganpati Bakers Bootstrap Project" />
+    <meta
+      name="description"
+      content="Bakery Web Template with Bootstrap 4, CSS animations, JavaScript, JQuery and localstorge usage in shopping cart feature."
+    />
+    <meta name="author" content="Leading edge software" />
+    <meta
+      name="keywords"
+      content="bakery, bakery template, Ganpati bakery, free template"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sofadi+One&display=swap" rel="stylesheet">
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/fontawesome/css/all.min.css"
+    />
+
+    <!-- owlcarousel -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/owlcarousel/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/owlcarousel/owl.theme.default.min.css"
+    />
+
+    <!-- aos -->
+    <link rel="stylesheet" type="text/css" href="vendor/aos/aos.css" />
+
+    <!-- logo -->
+    <link rel="icon" href="images/logo.png" type="image/png" sizes="16x16" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <style>
+    </style>
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top menu">
+        <div class="container px-md-0">
+          <a class="navbar-brand" href="index.html" ><span>Ganapati</span> Bakers</a>
+
+          <button
+            class="animate-toggler d-lg-none d-md-inline-block"
+            type="button"
+            data-target="#myNav"
+            data-toggle="collapse"
+          >
+            <i></i><i></i><i></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="myNav" style="padding-right: 2rem;">
+            <ul class="navbar-nav m-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="product.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="##"> Baked Goodies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Staples</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="##"> Gifting</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> Gallery</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              <input
+                type="text"
+                name="search"
+                id="searchbox"
+                placeholder="Enter Keyword..."
+                autofocus
+                class="shadow p-2"
+                style="display: none"
+              />
+              <button
+                class="btn btn-search"
+                id="search-Button"
+                aria-controls="sidebar"
+                aria-expanded="false"
+              >
+                <i class="fas fa-search icon-light"></i>
+              </button>
+              <aside id="sidebar" class="sidebar" aria-hidden="true">
+                <p>here are the things here</p>
+              </aside>
+            </span>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <style>
+      .about-hero {
+        background-image: url("images/down.jpg");
+        background-size: cover;
+        background-position: bottom;
+        height: clamp(200px, 30vh, 500px);
+        position: relative;
+        display:flex;
+        align-items:center;
+      color: #A31F34;
+        top:-30px;
+        height: 20rem;
+        justify-content: center;
+      }
+      .about-overlay{
+        position:absolute;
+        padding: 15px;
+        margin-left: 10px;
+        margin-right:10px;
+        /* max-width: 70%; */
+        border-radius:20px;
+        background-color: #ffffff4a;
+        backdrop-filter: blur(9px);
+        -webkit-backdrop-filter: blur(9px);
+        margin-top: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+      }
+      .count-subp{
+        font-size: clamp(1rem, 3vw,1.5rem);
+        font-weight: bolder;
+        color: #A31F34;
+        text-transform: uppercase;
+      }
+      .count{
+        color: #A31F34;
+        font-size: clamp(2.4rem, 6vw, 5rem);
+        font-weight: bolder;
+        font-family: "Sofadi One", sans-serif;
+        margin-bottom: 0.5rem;
+      }
+      @media (min-width: 1080px){
+        .about-overlay{
+          padding:45px;
+        }
+      }
+    </style>
+    <main>
+      <section id="space-banner"></section>
+      <section class="about-hero">
+        <div class="about-overlay d-flex justify-content-center align-items-center flex-column">
+          <h1 class="text-center"style="font-size:clamp(2rem, 6vw, 3.5rem); font-weight:bold;   color: #f1f1f1;
+">About Ganapati Bakers</h1>
+          <p class="text-center" style="font-size:1.2rem;font-family:sans-serif;font-weight:200;color: #f1f1f1;
+ ">Every day, Ganapati Bakers bake range of traditional as well as modern breads, cakes and pastries.</p>
+        </div>
+        <div class="about-curve"></div>
+      </section>
+      <section class="about-more-content-center mt-5">
+        <div class="d-flex flex-column align-items-center">
+        <h1 class="text-center" style='font-size:clamp(2rem, 5vw, 3rem); color:#A31F34; font-weight: bolder; font-family:"Bebas Neue", sans-serif; letter-spacing: 3px;'>Baking since 20XX</h1>
+        <p class="text-center text-dark mt-md-2 mt-1" style="max-width:640px">Since 20XX, we have been committed to serving our customers and being pillars of our communities in our locality. Because you don't deserve butter, you deserve Bread</p>
+        </div>
+        <div class="counting-facts row mt-md-5 mx-5 px-5" style="box-sizing:border-box;">
+          <div class="col-lg-4 col-md-6 text-center mb-4 mx-0 mt-2">
+            <h2 class="count" data-target="12">
+            </h2>
+            <p class="count-subp">Branches</p>
+          </div>
+          <div class="col-lg-4 col-md-6 text-center mb-4 mx-0">
+            <h2 class="count" data-target="10">
+            </h2>
+            <p class="count-subp">Awards Won</p>
+          </div>
+          <div class="col-lg-4 col-md-12 text-center mb-4 mx-0">
+            <h2 class="count" data-target="11">
+            </h2>
+            <p class="count-subp">Years of Baking</p>
+          </div>
+        </div>
+      </section>
+       <style>
+    .history-section {
+      background-color: #f6e9eb; /* light tone of #A31F34 */
+      padding: 60px 20px;
+    }
+
+    .history-title {
+      color: #A31F34;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .history-card {
+      background-color: #fffefe;
+      border-radius: 20px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 2px 15px rgba(163, 31, 52, 0.1);
+      height: 18rem;
+      font-weight:200;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      max-width:20rem;
+      border: 2px solid transparent;
+    }
+
+    .history-card:hover {
+      box-shadow: 0 8px 30px rgba(163, 31, 52, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .history-card.expanded {
+      height: auto;
+      cursor: default;
+    }
+
+    .history-card.expanded:hover {
+      transform: none;
+    }
+
+    .history-card h3 {
+      color: #A31F34;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .history-card .card-content {
+      overflow: hidden;
+      position: relative;
+      height: calc(100% - 20px);
+      line-height: 1.6;
+    }
+
+    .history-card .card-content p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .history-card .card-content::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      /* background: linear-gradient(transparent, #fff1f4 100%); */
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .history-card.expanded .card-content::after {
+      opacity: 0;
+    }
+
+    .history-card .see-more-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      /* background: linear-gradient(transparent, #fff1f4 80%); */
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 12px;
+      transition: opacity 0.3s ease;
+    }
+
+    .history-card .see-more-text {
+      color: #A31F34;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+      padding: 0px 8px;
+      border-radius: 20px;
+      /* background: rgba(163, 31, 52, 0.05); */
+      backdrop-filter: blur(5px);
+    }
+
+    .history-card .see-more-text:hover {
+      /* background: rgba(163, 31, 52, 0.1); */
+      transform: translateY(-1px);
+      text-decoration: none;
+      color: #A31F34;
+    }
+
+    .history-card .see-more-text .arrow {
+      transition: transform 0.3s ease;
+      font-size: 0.8rem;
+    }
+
+    .history-card:hover .see-more-text .arrow {
+      transform: translateY(2px);
+    }
+
+    .history-card.expanded .see-more-overlay {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .history-card .collapse-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(163, 31, 52, 0.1);
+      color: #A31F34;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: scale(0.8);
+      font-size: 14px;
+      z-index: 10;
+    }
+
+    .history-card.expanded .collapse-btn {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .history-card .collapse-btn:hover {
+      background: rgba(163, 31, 52, 0.2);
+      transform: scale(1.05);
+    }
+
+    .history-img {
+      background-color: #000;
+      border-radius: 20px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 767px) {
+      .history-card {
+        margin-bottom: 20px;
+      }
+      #about-us .abus{
+        max-width: 80%;
+        box-sizing: border-box;
+        background:red;
+      }
+    }
+  </style>
+      <section class="history-section text-center text-dark mt-5">
+        <hr>
+  <div class="container">
+    <h2 class="history-title">Our history</h2>
+    <p class="mb-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe voluptatem tempora nam officiis ratione?.</p>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="history-card">
+          <button class="collapse-btn" title="Collapse">
+            ×
+          </button>
+          <div class="card-content">
+            <p class="text-muted">The year began</p>
+            <h3>2007</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus laboriosam iste labore earum harum assumenda perspiciatis mollitia nesciunt quaerat nihil cumque, vitae molestias debitis odit sunt eveniet saepe. Eveniet, nulla consectetur adipisicing elit.</p>
+          </div>
+          <div class="see-more-overlay">
+            <div class="see-more-text">
+              Read more <span class="arrow">↓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="history-card">
+          <button class="collapse-btn" title="Collapse">
+            ×
+          </button>
+          <div class="card-content">
+            <p class="text-muted">3 years after</p>
+            <h3>2010</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci facilis excepturi molestias itaque dignissimos cum error? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, fugit consectetur.</p>
+          </div>
+          <div class="see-more-overlay">
+            <div class="see-more-text">
+              Read more <span class="arrow">↓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class="col-md-4">
+        <div class="history-card">
+          <button class="collapse-btn" title="Collapse">
+            ×
+          </button>
+          <div class="card-content">
+            <p class="text-muted">Current Bakery</p>
+            <h3>2025</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci facilis excepturi molestias itaque dignissimos cum error? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus, fugit consectetur.</p>
+          </div>
+          <div class="see-more-overlay">
+            <div class="see-more-text">
+              Read more <span class="arrow">↓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      <section id="about-us">
+        <hr>
+        <div class="abus row mb-3 align-items-center flex-row px-md-5">
+          <div class="abus-image col-md-6">
+            <img class="img-fluid" src="./images/about-img.jpg" alt="" style="border-radius: 15px; border: 1px solid lightgrey;">
+          </div>
+          <div class="abus-text col-md-6 pl-md-5">
+            <h1 style="font-weight:bold;">More Section TEXT Add here</h1>
+            <p>You may not realise it, but your bread has undergone an amazing journey well before you take it home and tuck in. Our flour is sourced from Aussie farms, processed by family-owned millers and lovingly crafted into bread by our bakers. Take the journey with us.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+   <footer
+      class="pt-5 text-center"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <!-- Heading Section -->
+      <h3
+        class="font-italic text-light"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
+        We baked every day for you...
+      </h3>
+      <hr />
+
+      <!-- Main Footer Content -->
+      <div class="container-fluid">
+        <div class="row m-0">
+          <!-- Address and Opening Hours -->
+          <!-- Company, Bakery, Support Section -->
+          <div class="col-md-4 mb-4 row m-0">
+            <div class="col-lg-4">
+            <h4 class="text-light font-weight-bold">Company</h4>
+            <ul class="footer-ul">
+              <li><a href="#" class="text-light">About us</a></li>
+              <li><a href="#" class="text-light">Blogs</a></li>
+              <li><a href="#" class="text-light">Careers</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-light font-weight-bold">Bakery</h4>
+            <ul class="footer-ul">
+              <li><a href="#" class="text-light">Locations</a></li>
+              <li><a href="#" class="text-light">Our products</a></li>
+              <li><a href="#" class="text-light">Recipes</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h4 class="text-light font-weight-bold">Support</h4>
+            <ul class="footer-ul">
+              <li><a href="#" class="text-light">FAQs</a></li>
+              <li><a href="#" class="text-light">Contact us</a></li>
+            </ul>
+          </div>
+            <!-- Social Media Icons -->
+            
+          </div>
+        <div class="col-md-4 mb-4">
+          <h4 class="text-light font-weight-bold">Address</h4>
+          <p class="text-light">
+            Ganapati Road, Birtamod <br />
+            Jhapa, Nepal
+          </p>
+          <p class="text-light">023-534577</p>
+          <h4 class="text-light font-weight-bold">Opening Hours</h4>
+          <div class="row opening-hour">
+            <div class="col-5 text-light text-right">Mon - Fri</div>
+            <div class="col-7 text-light text-center">08:00 to 09:00</div>
+            <div class="col-5 text-light text-right">Sat - Sun</div>
+            <div class="col-7 text-light text-center">08:00 to 06:00</div>
+            <div class="col-5 text-warning text-right mt-3">Happy Hour</div>
+            <div class="col-7 text-warning text-center mt-3">11:00 to 01:00</div>
+          </div>
+        </div>
+
+        <!-- Facebook iframe Section -->
+          <div class="col-md-4 text-center">
+            <div class="bread-shaped-container">
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fganapatibakers&tabs=timeline&width=450&height=450&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                width="400"
+                height="500"
+                style="border: none; overflow: hidden"
+                scrolling="no"
+                frameborder="0"
+                allowTransparency="true"
+                
+                style="border-radius: 50%"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+
+      <!-- Footer copyright section -->
+      <div class="div-footer text-right py-4 pr-lg-2">
+<div class="social-media mt-3 col-12 text-left p-0">
+              <span class="text-light mr-2">Follow us:</span>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-icon"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+            </div>
+        Copyright © 2025 Ganpati Bakers by
+        <a
+          href="https://leadingedgesoft.com/"
+          target="_blank"
+          class="text-white"
+          >Leading Edge Software</a
+        >.
+      </div>
+    </footer>
+    <!-- Modal -->
+    <!-- scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- vendor -->
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script
+      type="text/javascript"
+      src="vendor/owlcarousel/owl.carousel.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="vendor/owlcarousel/jquery.mousewheel.min.js"
+    ></script>
+    <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="vendor/aos/aos.js"></script>
+
+    <!-- custom -->
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/localstorage.js"></script>
+
+      <script>
+        // counting
+        let counters = document.querySelectorAll('.count');
+        counters.forEach(counter => {
+          counter.innerText = '0';
+          let updateCount = () => {
+            let target = +counter.getAttribute('data-target');
+            let count = +counter.innerText;
+            let increment = target / 200; 
+            if (count < target) {
+              counter.innerText = Math.ceil(count + increment);
+              setTimeout(updateCount,  100); 
+            } else {
+              counter.innerText = target + '+';
+            }
+          };
+          updateCount();
+        });
+
+        // History card expand functionality
+        document.addEventListener('DOMContentLoaded', function() {
+          const historyCards = document.querySelectorAll('.history-card');
+          
+          historyCards.forEach(card => {
+            const seeMoreOverlay = card.querySelector('.see-more-overlay');
+            const collapseBtn = card.querySelector('.collapse-btn');
+            
+            // Expand card when clicking on see more overlay or card itself
+            const expandCard = (e) => {
+              e.stopPropagation();
+              card.classList.add('expanded');
+            };
+            
+            // Collapse card when clicking collapse button
+            const collapseCard = (e) => {
+              e.stopPropagation();
+              card.classList.remove('expanded');
+            };
+            
+            // Add event listeners
+            seeMoreOverlay.addEventListener('click', expandCard);
+            
+            // Make entire card clickable only if not expanded
+            card.addEventListener('click', (e) => {
+              if (!card.classList.contains('expanded') && 
+                  !e.target.closest('.collapse-btn') && 
+                  !e.target.closest('.see-more-overlay')) {
+                expandCard(e);
+              }
+            });
+            
+            // Collapse button event
+            collapseBtn.addEventListener('click', collapseCard);
+          });
+        });
+      </script>
+  </body>
+</html>

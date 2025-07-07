@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ganpati Bakers Bootstrap Project</title>
+    <!-- meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Ganpati Bakers Bootstrap Project" />
+    <meta
+      name="description"
+      content="Bakery Web Template with Bootstrap 4, CSS animations, JavaScript, JQuery and localStorage usage in shopping cart feature."
+    />
+    <meta name="author" content="Leading edge software" />
+    <meta
+      name="keywords"
+      content="bakery, bakery template, Ganpati bakery, free template"
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Google Font for Card Titles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/fontawesome/css/all.min.css"
+    />
+
+    <!-- owlcarousel -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/owlcarousel/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/owlcarousel/owl.theme.default.min.css"
+    />
+
+    <!-- aos -->
+    <link rel="stylesheet" type="text/css" href="vendor/aos/aos.css" />
+
+    <!-- jquery ui -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/jquery-ui/jquery-ui.css"
+    />
+
+    <!-- logo -->
+    <link rel="icon" href="images/logo.png" type="image/png" sizes="16x16" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <style>
+      :root {
+        --primary-color: #a31f34;
+        --card-bg-color: #fffdf1;
+      }
+
+      #product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+        gap: 2.5rem;
+      }
+
+      .item-card {
+        background-color: var(--card-bg-color);
+        border-radius: 20px;
+        padding: 0.5rem;
+        text-align: center;
+        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInSlideUp 0.5s ease-out forwards;
+      }
+
+      .item-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-badge {
+        display: none;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 3rem;
+        font-size: 0.7rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        z-index: 2;
+      }
+
+      .product-image-wrapper {
+        margin-bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .product-image-wrapper img {
+        max-width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 1.1rem;
+        filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.15));
+        transition: transform 0.3s cubic-bezier(0.4, 2, 0.6, 1);
+        transform-origin: 50% 60%;
+      }
+
+      .item-card:hover .product-image-wrapper img {
+        animation: swing-scale 0.8s infinite alternate
+          cubic-bezier(0.4, 2, 0.6, 1);
+        transform: scale(1.001) rotate(-3deg);
+      }
+
+      @keyframes swing-scale {
+        0% {
+          transform: scale(1.01) rotate(-3deg);
+        }
+        50% {
+          transform: scale(1.001) rotate(3deg);
+        }
+        100% {
+          transform: scale(1.001) rotate(-3deg);
+        }
+      }
+
+      .products .owl-carousel .item h5,
+      #newarrival .div-explanation h5,
+      #bakers h5,
+      #review h5,
+      #about-us h3,
+      #contact h5,
+      #product-list h5,
+      #checkout h5 h5 {
+        color: var(--primary-color);
+        font-family: "Nunito Sans", sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        text-transform: capitalize;
+        margin: 0;
+      }
+
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        min-height: 5rem;
+      }
+
+      .product-price {
+        font-size: 1.1rem;
+        color: #555;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .btn-addtocart {
+        display: none;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0.7rem 1.5rem;
+        border-radius: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn-addtocart:hover {
+        background-color: #86192b;
+      }
+
+      @keyframes fadeInSlideUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top menu">
+          <div class="container px-md-0">
+          <a class="navbar-brand" href="index.html" style=""><span>Ganapati</span> Bakers</a>
+
+          <button
+            class="animate-toggler d-lg-none d-md-inline-block"
+            type="button"
+            data-target="#myNav"
+            data-toggle="collapse"
+          >
+            <i></i><i></i><i></i>
+          </button>
+         <div class="collapse navbar-collapse" id="myNav" style="padding-right: 2rem;">
+            <ul class="navbar-nav m-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="product.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="##"> Baked Goodies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Staples</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="##"> Gifting</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"> Gallery</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              <input
+                type="text"
+                name="search"
+                id="searchbox"
+                placeholder="Enter Keyword..."
+                autofocus
+                class="shadow p-2"
+                style="display: none"
+              />
+              <button
+                class="btn btn-search"
+                id="search-Button"
+                aria-controls="sidebar"
+                aria-expanded="false"
+              >
+                <i class="fas fa-search icon-light"></i>
+              </button>
+              <aside id="sidebar" class="sidebar" aria-hidden="true">
+                <p>here are the things here</p>
+              </aside>
+            </span>
+          </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="space-banner"></section>
+      <section
+        id="product-list"
+        class="d-flex justify-content-center m-0"
+        style="margin-top: 3rem !important; margin-bottom: 6rem !important"
+      >
+        <div class="container py-2">
+          <h2 class="section-title">Our Products</h2>
+          <div class="row">
+            <div
+              class="col-lg-3 order-2 order-lg-1 mb-4 mb-lg-0 order-lg-0 order-1"
+            >
+              <h5
+                class="font-weight-bold text-center pt-3"
+                style="letter-spacing: 2px"
+              >
+                Product Categories
+              </h5>
+              <ul class="list-group px-3" id="category-filter-list">
+                <a href="#all" class="category-filter active">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-2"
+                  >
+                    All<span>(11)</span>
+                  </li>
+                </a>
+                <a href="#bread" class="category-filter">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-2"
+                  >
+                    Bread<span>(5)</span>
+                  </li>
+                </a>
+                <a href="#cakes" class="category-filter">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-2"
+                  >
+                    Cakes<span>(2)</span>
+                  </li>
+                </a>
+                <a href="#muffin" class="category-filter">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-2"
+                  >
+                    Muffin<span>(3)</span>
+                  </li>
+                </a>
+                <a href="#others" class="category-filter">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 py-2"
+                  >
+                    Others<span>(1)</span>
+                  </li>
+                </a>
+              </ul>
+              <hr class="my-4" />
+              <h5
+                class="font-weight-bold text-center"
+                style="letter-spacing: 2px"
+              >
+                Filter By Price
+              </h5>
+              <div class="px-3">
+                <p>
+                  <input
+                    type="text"
+                    id="amount"
+                    readonly
+                    style="
+                      border: 0;
+                      color: #a31f34;
+                      font-weight: bold;
+                      width: 100%;
+                      text-align: center;
+                    "
+                  />
+                </p>
+                <div id="slider-range"></div>
+                <button
+                  id="price-filter-btn"
+                  class="btn btn-outline-dark btn-block my-4"
+                >
+                  SEARCH
+                </button>
+              </div>
+              <hr class="my-4" />
+            </div>
+            <div class="col-lg-9 order-2 order-lg-1">
+              <div id="product-grid">
+                <!-- Products will be dynamically inserted here by JavaScript -->
+              </div>
+              <!-- Sentinel element for lazy loading -->
+              <div id="sentinel" style="height: 10px; display: none"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="pt-5 text-center"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
+      <h3
+        class="font-italic text-light"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
+        We baked every day for you...
+      </h3>
+      <hr />
+      <div class="container-fluid">
+        <div class="row m-0">
+          <div class="col-md-4 mb-4 row m-0">
+            <div class="col-lg-4">
+              <h4 class="text-light font-weight-bold">Company</h4>
+              <ul class="footer-ul">
+                <li><a href="#" class="text-light">About us</a></li>
+                <li><a href="#" class="text-light">Blogs</a></li>
+                <li><a href="#" class="text-light">Careers</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4">
+              <h4 class="text-light font-weight-bold">Bakery</h4>
+              <ul class="footer-ul">
+                <li><a href="#" class="text-light">Locations</a></li>
+                <li><a href="#" class="text-light">Our products</a></li>
+                <li><a href="#" class="text-light">Recipes</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4">
+              <h4 class="text-light font-weight-bold">Support</h4>
+              <ul class="footer-ul">
+                <li><a href="#" class="text-light">FAQs</a></li>
+                <li><a href="#" class="text-light">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h4 class="text-light font-weight-bold">Address</h4>
+            <p class="text-light">
+              Ganapati Road, Birtamod <br />
+              Jhapa, Nepal
+            </p>
+            <p class="text-light">023-534577</p>
+            <h4 class="text-light font-weight-bold">Opening Hours</h4>
+            <div class="row opening-hour">
+              <div class="col-5 text-light text-right">Mon - Fri</div>
+              <div class="col-7 text-light text-center">08:00 to 09:00</div>
+              <div class="col-5 text-light text-right">Sat - Sun</div>
+              <div class="col-7 text-light text-center">08:00 to 06:00</div>
+              <div class="col-5 text-warning text-right mt-3">Happy Hour</div>
+              <div class="col-7 text-warning text-center mt-3">
+                11:00 to 01:00
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 text-center">
+            <div class="bread-shaped-container">
+              <iframe
+                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fganapatibakers&tabs=timeline&width=450&height=450&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                width="400"
+                height="500"
+                style="border: none; overflow: hidden"
+                scrolling="no"
+                frameborder="0"
+                allowTransparency="true"
+                style="border-radius: 50%"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="div-footer text-right py-4 pr-lg-2">
+          <div class="social-media mt-3 col-12 text-left p-0">
+            <span class="text-light mr-2">Follow us:</span>
+            <a href="#" class="social-icon"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+          </div>
+          Copyright © 2025 Ganpati Bakers by
+          <a
+            href="https://leadingedgesoft.com/"
+            target="_blank"
+            class="text-white"
+            >Leading Edge Software</a
+          >.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+    <div
+      class="modal"
+      id="loginModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="loginModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0 pb-0">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body px-4">
+            <ul
+              class="nav nav-pills mb-3 nav-justified"
+              id="pills-tab"
+              role="tablist"
+            >
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link font-weight-bold active"
+                  id="pills-login-tab"
+                  data-toggle="pill"
+                  href="#pills-login"
+                  role="tab"
+                  aria-controls="pills-login"
+                  aria-selected="true"
+                  >Log In</a
+                >
+              </li>
+              <li class="nav-item" role="presentation">
+                <a
+                  class="nav-link font-weight-bold"
+                  id="pills-register-tab"
+                  data-toggle="pill"
+                  href="#pills-register"
+                  role="tab"
+                  aria-controls="pills-register"
+                  aria-selected="false"
+                  >Register</a
+                >
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-login"
+                role="tabpanel"
+                aria-labelledby="pills-login-tab"
+              >
+                <form id="custom-form">
+                  <div class="group">
+                    <input type="email" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Email Address</label>
+                  </div>
+                  <div class="group">
+                    <input type="password" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Password</label>
+                  </div>
+                  <p class="text-right mb-4">
+                    <a href="#" class="text-muted">Forget Password?</a>
+                  </p>
+                  <button class="btn btn-block btn-dark py-2 mb-4">
+                    Login
+                  </button>
+                  <p class="text-center text-secondary">
+                    <small>Or Login With</small>
+                  </p>
+                  <div class="row mb-4">
+                    <div class="col-6">
+                      <button
+                        type="button"
+                        class="btn shadow btn-block btn-facebook"
+                      >
+                        <i class="fab fa-facebook-f pr-2"></i> Facebook
+                      </button>
+                    </div>
+                    <div class="col-6">
+                      <button
+                        type="button"
+                        class="btn shadow btn-block btn-google"
+                      >
+                        <i class="fab fa-google pr-2"></i> Google
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-register"
+                role="tabpanel"
+                aria-labelledby="pills-register-tab"
+              >
+                <form id="custom-form">
+                  <div class="group">
+                    <input type="text" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>User Name</label>
+                  </div>
+                  <div class="group">
+                    <input type="email" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Email Address</label>
+                  </div>
+                  <div class="group">
+                    <input type="password" required />
+                    <span class="highlight"></span>
+                    <span class="bar"></span>
+                    <label>Password</label>
+                  </div>
+                  <input
+                    type="checkbox"
+                    name="chkagree"
+                    style="width: auto; display: inline"
+                  />
+                  I agree with terms and conditions.
+                  <button class="btn btn-block btn-dark py-2 mt-5 mb-4">
+                    Register
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- scripts -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/jquery.touchSwipe.min.js"></script>
+    <script
+      type="text/javascript"
+      src="vendor/owlcarousel/owl.carousel.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="vendor/owlcarousel/jquery.mousewheel.min.js"
+    ></script>
+    <script type="text/javascript" src="vendor/jquery-ui/jquery-ui.js"></script>
+    <script type="text/javascript" src="vendor/aos/aos.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/localstorage.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const allProducts = [
+          {
+            id: 3,
+            name: "Choco Cheesecake",
+            price: 7500,
+            image: "images/products/3.jpg",
+            category: "cakes",
+            featured: true,
+          },
+          {
+            id: 1,
+            name: "Sourdough",
+            price: 1200,
+            image: "images/products/1.jpg",
+            category: "bread",
+            featured: false,
+          },
+          {
+            id: 2,
+            name: "Croissant",
+            price: 1500,
+            image: "images/products/2.jpg",
+            category: "bread",
+            featured: true,
+          },
+          {
+            id: 4,
+            name: "Ciabatta",
+            price: 1400,
+            image: "images/products/4.jpg",
+            category: "bread",
+            featured: false,
+          },
+          {
+            id: 5,
+            name: "Black Forest",
+            price: 8000,
+            image: "images/products/5.jpg",
+            category: "cakes",
+            featured: true,
+          },
+          {
+            id: 6,
+            name: "Maple Oat Muffin",
+            price: 1000,
+            image: "images/products/6.jpg",
+            category: "muffin",
+            featured: true,
+          },
+          {
+            id: 7,
+            name: "Cheese Pocket",
+            price: 1600,
+            image: "images/products/7.jpg",
+            category: "others",
+            featured: false,
+          },
+          {
+            id: 8,
+            name: "Baguette",
+            price: 900,
+            image: "images/products/8.jpg",
+            category: "bread",
+            featured: false,
+          },
+          {
+            id: 9,
+            name: "Blueberry Muffin",
+            price: 1100,
+            image: "images/products/9.jpg",
+            category: "muffin",
+            featured: true,
+          },
+          {
+            id: 10,
+            name: "Chocolate Chip Muffin",
+            price: 1150,
+            image: "images/products/10.jpg",
+            category: "muffin",
+            featured: false,
+          },
+          {
+            id: 11,
+            name: "Whole Wheat Bread",
+            price: 1300,
+            image: "images/products/11.jpg",
+            category: "bread",
+            featured: true,
+          },
+        ];
+
+        const productGrid = document.getElementById("product-grid");
+        const sentinel = document.getElementById("sentinel");
+        const categoryLinks = document.querySelectorAll(
+          "#category-filter-list a"
+        );
+        const priceFilterBtn = document.getElementById("price-filter-btn");
+
+        const INITIAL_LOAD = 6;
+        const BATCH_SIZE = 3;
+        let currentlyDisplayedProducts = [];
+        let isLoading = false;
+        let intersectionObserver;
+
+        function generateProductCardHTML(product, index) {
+          const animationDelay = (index % (INITIAL_LOAD + BATCH_SIZE)) * 80;
+          const featuredBadge = product.featured
+            ? `<div class="product-badge">Featured</div>`
+            : "";
+
+          return `
+                    <div class="item-card" data-price="${product.price}" data-category="${product.category}" style="animation-delay: ${animationDelay}ms;">
+                        ${featuredBadge}
+                        <div class="product-image-wrapper">
+                            <img src="${product.image}" alt="${product.name}">
+                        </div>
+                        <div class="product-info">
+                            <h5>${product.name}</h5>
+                            <p class="product-price">Rs.${product.price}</p>
+                            <button class="btn-addtocart" data-id="${product.id}" data-price="${product.price}" data-name="${product.name}">
+                                ADD TO CART
+                            </button>
+                        </div>
+                    </div>`;
+        }
+
+        function renderProducts(products) {
+          productGrid.innerHTML = "";
+          if (products.length === 0) {
+            productGrid.innerHTML =
+              '<p class="w-100 text-center">No products match your criteria.</p>';
+            return;
+          }
+          appendProducts(products);
+        }
+
+        function appendProducts(products) {
+          const productsHTML = products
+            .map((p, i) =>
+              generateProductCardHTML(p, productGrid.children.length + i)
+            )
+            .join("");
+          productGrid.insertAdjacentHTML("beforeend", productsHTML);
+        }
+
+        function loadMoreProducts() {
+          if (isLoading) return;
+          isLoading = true;
+
+          const currentCount = productGrid.children.length;
+          const nextBatch = currentlyDisplayedProducts.slice(
+            currentCount,
+            currentCount + BATCH_SIZE
+          );
+
+          if (nextBatch.length > 0) {
+            setTimeout(() => {
+              appendProducts(nextBatch);
+              isLoading = false;
+            }, 1200);
+          }
+
+          if (
+            productGrid.children.length + nextBatch.length >=
+            currentlyDisplayedProducts.length
+          ) {
+            if (intersectionObserver) intersectionObserver.disconnect();
+            sentinel.style.display = "none";
+          }
+        }
+
+        function setupObserver() {
+          if (intersectionObserver) intersectionObserver.disconnect();
+
+          if (currentlyDisplayedProducts.length > INITIAL_LOAD) {
+            sentinel.style.display = "block";
+            const options = { rootMargin: "200px", threshold: 0 };
+            intersectionObserver = new IntersectionObserver((entries) => {
+              if (entries[0] && entries[0].isIntersecting && !isLoading) {
+                loadMoreProducts();
+              }
+            }, options);
+            intersectionObserver.observe(sentinel);
+          } else {
+            sentinel.style.display = "none";
+          }
+        }
+
+        function applyFilters() {
+          const activeCategoryLink = document.querySelector(
+            "#category-filter-list a.active"
+          );
+          const category = activeCategoryLink.getAttribute("href").substring(1);
+          const priceRange = $("#slider-range").slider("values");
+          const minPrice = priceRange[0];
+          const maxPrice = priceRange[1];
+
+          let filtered = allProducts;
+
+          if (category !== "all") {
+            filtered = filtered.filter((p) => p.category === category);
+          }
+
+          filtered = filtered.filter(
+            (p) => p.price >= minPrice && p.price <= maxPrice
+          );
+
+          currentlyDisplayedProducts = filtered;
+          if (intersectionObserver) intersectionObserver.disconnect();
+          sentinel.style.display = "none";
+          renderProducts(currentlyDisplayedProducts);
+        }
+
+        const prices = allProducts.map((p) => p.price);
+        const minPrice = Math.min(...prices);
+        const maxPrice = Math.max(...prices);
+
+        $("#slider-range").slider({
+          range: true,
+          min: minPrice,
+          max: maxPrice,
+          values: [minPrice, maxPrice],
+          slide: (event, ui) =>
+            $("#amount").val("Rs." + ui.values[0] + " - Rs." + ui.values[1]),
+        });
+        $("#amount").val("Rs." + minPrice + " - Rs." + maxPrice);
+
+        categoryLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            categoryLinks.forEach((l) => l.classList.remove("active"));
+            this.classList.add("active");
+            const category = this.getAttribute("href").substring(1);
+            if (category === "all") {
+              initialLoad();
+            } else {
+              applyFilters();
+            }
+          });
+        });
+
+        priceFilterBtn.addEventListener("click", applyFilters);
+
+        function initialLoad() {
+          currentlyDisplayedProducts = allProducts;
+          const initialProducts = currentlyDisplayedProducts.slice(
+            0,
+            INITIAL_LOAD
+          );
+          renderProducts(initialProducts);
+          setupObserver();
+        }
+
+        initialLoad();
+      });
+    </script>
+  </body>
+</html>
